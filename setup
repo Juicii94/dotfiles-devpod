@@ -5,6 +5,10 @@ mkdir -p "$XDG_CONFIG_HOME"/nixpkgs
 
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 
+ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/.zshrc" "$HOME"/.zshrc
+ln -sf "$PWD/.p10k.zsh" "$HOME"/.p10k.zsh
+
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME"/nixpkgs/config.nix
 
 # install nix packages form config.nix
