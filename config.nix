@@ -9,6 +9,9 @@
         lazygit
         inter-nerdfont
         tmux
+        tmuxPlugins.catppuccin
+        tmuxPlugins.vim-tmux-navigator
+        tmuxPlugins.tmux-sessionx
       ];
     };
   };

@@ -7,3 +7,8 @@ vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 vim.keymap.set("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 vim.keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+
+vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]])
+vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]])
+vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]])
+vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]])
