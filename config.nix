@@ -7,7 +7,7 @@
         ripgrep
         fzf
         lazygit
-        zsh-powerlevel10k
+        powerlevel10k
         inter-nerdfont
       ];
     };
