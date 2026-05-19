@@ -7,7 +7,7 @@
         ripgrep
         fzf
         lazygit
-      ]
-    }
-  }
+      ];
+    };
+  };
 }
