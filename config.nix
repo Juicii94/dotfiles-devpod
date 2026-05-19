@@ -8,6 +8,7 @@
         fzf
         lazygit
         inter-nerdfont
+        tmux
       ];
     };
   };
