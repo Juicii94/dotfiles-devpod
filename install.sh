@@ -6,30 +6,20 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 mkdir -p "$XDG_CONFIG_HOME"
 
-# install homebrew if missing
-if ! command -v brew >/dev/null 2>&1; then
-  NONINTERACTIVE=1 bash -c \
-    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+# Install Homebrew
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# load brew into current shell
-if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [ -x /opt/homebrew/bin/brew ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-  echo "brew not found"
-  exit 1
-fi
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" &&
+  brew install neovim
 
-# install tools
-brew install neovim ripgrep fzf lazygit
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" &&
+  brew install ripgrep
 
-# install LazyVim starter
-if [ ! -d "$XDG_CONFIG_HOME/nvim" ]; then
-  git clone https://github.com/LazyVim/starter "$XDG_CONFIG_HOME/nvim"
-  rm -rf "$XDG_CONFIG_HOME/nvim/.git"
-fi
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" &&
+  brew install fzf
+
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" &&
+  brew install lazygit
 
 # symlink configs
 ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
