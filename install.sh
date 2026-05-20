@@ -31,4 +31,12 @@ ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
 ln -sf "$PWD/.p10k.zsh" "$HOME/.p10k.zsh"
 
+sudo apt-get update
+sudo apt-get install -y locales
+
+sudo locale-gen en_US.UTF-8
+
+echo 'export LANG=en_US.UTF-8' >>~/.zshrc
+echo 'export LC_ALL=en_US.UTF-8' >>~/.zshrc
+
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>~/.zshrc
