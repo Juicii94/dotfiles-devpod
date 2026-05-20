@@ -17,7 +17,6 @@ return {
         "shfmt",
         "sql-formatter",
         "stylua",
-        "tree-sitter-cli",
         "ts-standard",
         "typescript-language-server",
         "vtsls",
