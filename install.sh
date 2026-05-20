@@ -6,24 +6,21 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 mkdir -p "$XDG_CONFIG_HOME"
 
-# Install Homebrew
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" &&
-  brew install neovim
+# load brew into current shell
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" &&
-  brew install ripgrep
-
-RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" &&
-  brew install fzf
-
-RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" &&
-  brew install lazygit
+# install tools
+brew install neovim
+brew install ripgrep
+brew install fzf
+brew install lazygit
 
 # symlink configs
 ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
 ln -sf "$PWD/.p10k.zsh" "$HOME/.p10k.zsh"
 
-echo "done — run: nvim"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>~/.zshrc
