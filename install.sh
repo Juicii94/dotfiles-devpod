@@ -19,6 +19,7 @@ brew install fzf
 brew install lazygit
 
 # symlink configs
+ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
 ln -sf "$PWD/.p10k.zsh" "$HOME/.p10k.zsh"
