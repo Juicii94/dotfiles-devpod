@@ -120,3 +120,6 @@ alias reload-tmux='tmux source-file ~/.tmux.conf'
 alias cl='clear'
 alias tmuxat='tmux attach -d -t'
 alias v='nvim'
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
