@@ -17,6 +17,9 @@ brew install neovim
 brew install ripgrep
 brew install fzf
 brew install lazygit
+brew install deno
+brew install tmux
+brew install tpm
 
 # symlink configs
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
