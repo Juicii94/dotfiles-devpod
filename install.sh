@@ -8,19 +8,22 @@ mkdir -p "$XDG_CONFIG_HOME"
 
 # install homebrew if missing
 if ! command -v brew >/dev/null 2>&1; then
-  NONINTERACTIVE=1 /bin/bash -c \
+  NONINTERACTIVE=1 bash -c \
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# setup brew env
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# load brew into current shell
+if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  echo "brew not found"
+  exit 1
+fi
 
 # install tools
-brew install \
-  neovim \
-  ripgrep \
-  fzf \
-  lazygit
+brew install neovim ripgrep fzf lazygit
 
 # install LazyVim starter
 if [ ! -d "$XDG_CONFIG_HOME/nvim" ]; then
