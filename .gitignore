@@ -7,3 +7,4 @@ node_modules
 /htop
 /iterm2
 /raycast
+.DS_Store

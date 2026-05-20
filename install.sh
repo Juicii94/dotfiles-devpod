@@ -19,7 +19,11 @@ brew install fzf
 brew install lazygit
 brew install deno
 brew install tmux
-brew install tpm
+
+# install TPM (tmux plugin manager)
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # symlink configs
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
